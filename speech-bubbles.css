@@ -1,0 +1,74 @@
+/* speech-bubbles.css */
+/* https://codingislove.com/css-speech-bubbles/ */
+
+:root {
+    /* --bubble-color: #df8b47; */
+    --bubble-color: #bd6c3d;
+}
+
+.box {
+    /* width: 160px; */
+    width: 160px;
+    /* margin: 50px auto; */
+    background: var(--bubble-color);
+    padding: 12px;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    /* border-radius: 15px; */
+    transform: skew(-10deg);
+    transform-origin: bottom left;
+}
+
+.sb1:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid var(--bubble-color);
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--bubble-color);
+    border-bottom: 10px solid transparent;
+    right: -19px;
+    top: 6px;
+}
+
+.sb2:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid var(--bubble-color);
+    border-top: 10px solid var(--bubble-color);
+    border-bottom: 10px solid transparent;
+    left: -19px;
+    top: 6px;
+}
+
+.sb3:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid var(--bubble-color);
+    border-right: 10px solid transparent;
+    border-top: 10px solid var(--bubble-color);
+    border-bottom: 10px solid transparent;
+    /* left: 19px; */
+    left: 110px;
+    bottom: -19px;
+}
+
+.sb4:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid var(--bubble-color);
+    border-top: 10px solid var(--bubble-color);
+    border-bottom: 10px solid transparent;
+    right: 19px;
+    bottom: -19px;
+}
