@@ -8,7 +8,7 @@
 
 .box {
     /* width: 160px; */
-    width: 160px;
+    width: 180px;
     /* margin: 50px auto; */
     background: var(--bubble-color);
     padding: 12px;
@@ -56,7 +56,7 @@
     border-top: 10px solid var(--bubble-color);
     border-bottom: 10px solid transparent;
     /* left: 19px; */
-    left: 110px;
+    left: 100px;
     bottom: -19px;
 }
 
