@@ -1,0 +1,942 @@
+<!-- this is a website for a programming school in vila do conde -->
+<!-- mobile first design, responsive, structured (easy to edit), seo optimized, with navigation bar, has example section for every use case -->
+<!-- the logo colors are #50af99 #2b6566 #4e9c9e #253846 #44638f #3c3255 #745888 -->
+<!-- teal and purple are heavily used in this website -->
+<!-- it is in dark mode to fit the tech vibe -->
+<!-- the intended audience are potential students aged 6 to 17 and their parents -->
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Cursos de programação para jovens em Vila do Conde. Aprendizagem prática e divertida com foco em criatividade e tecnologia!" />
+    <meta name="author" content="the code in toad" />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content="The Code In Toad" />
+    <meta property="og:description"
+        content="Programação divertida e prática para crianças e jovens dos 6 aos 17 anos." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/social-preview.jpg" />
+    <meta property="og:url" content="https://thecodeintoad.com" />
+
+
+
+    <title>the code in toad</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Outlined" rel="stylesheet">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&family=Rubik:wght@400&family=Nimbus+Mono&display=swap');
+
+        :root {
+            --primary-color: #121212;
+            --accent-color: #50af99;
+            --teal: #4e9c9e;
+            --purple: #745888;
+            --text-color: #ffffff;
+            --bg-light: #1e1e1e;
+            --card-bg: #2c2c2c;
+            --hover: #07b586;
+            --col1: #44638f;
+            --col2: #2b6566;
+            --col3: #253846;
+            --col4: #3c3255;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Rubik', sans-serif;
+            background: url('images/turing-pattern.svg'),
+                linear-gradient(60deg, rgba(0, 176, 129, 0.5), rgba(50, 0, 178, 0.5));
+            background-blend-mode: overlay;
+            background-attachment: fixed;
+            background-size: auto 180vh;
+            background-color: var(--bg-light);
+            color: var(--text-color);
+        }
+
+        .lava-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            /* filter: blur(120px); */
+            opacity: 0.2;
+            z-index: -1;
+            pointer-events: none;
+            mix-blend-mode: screen;
+        }
+
+        .glow1 {
+            background: #3f8989;
+            top: 10%;
+            left: 15%;
+            animation: float1 40s ease-in-out infinite, pulseOpacity 17s ease-in-out infinite;
+        }
+
+        .glow2 {
+            background: #6d4789;
+            top: 60%;
+            left: 70%;
+            animation: float2 50s ease-in-out infinite, pulseOpacity 11s ease-in-out infinite;
+        }
+
+        .glow3 {
+            background: #14725e;
+            top: 40%;
+            left: 35%;
+            animation: float3 70s ease-in-out infinite, pulseOpacity 13s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(50px, -30px);
+            }
+
+            50% {
+                transform: translate(-30px, 50px);
+            }
+
+            75% {
+                transform: translate(20px, -40px);
+            }
+        }
+
+        @keyframes float2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(-40px, 60px);
+            }
+
+            50% {
+                transform: translate(30px, -20px);
+            }
+
+            75% {
+                transform: translate(-60px, 30px);
+            }
+        }
+
+        @keyframes float3 {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            25% {
+                transform: translate(30px, 20px);
+            }
+
+            50% {
+                transform: translate(-20px, -30px);
+            }
+
+            75% {
+                transform: translate(25px, 25px);
+            }
+        }
+
+        @keyframes pulseOpacity {
+
+            0%,
+            100% {
+                opacity: 0.15;
+                filter: brightness(0.8) blur(120px) saturate(1.2) hue-rotate(0deg);
+            }
+
+            50% {
+                opacity: 0.25;
+                filter: brightness(1.0) blur(120px) saturate(0.8) hue-rotate(15deg);
+            }
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Rubik Mono One', sans-serif;
+            color: var(--text-color);
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        a {
+            color: var(--teal);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--hover);
+        }
+
+        /* NAVIGATION */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--primary-color);
+            /* background: linear-gradient(to bottom, var(--primary-color) 0%, var(--bg-light) 100%); */
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4), inset 0 4px 10px rgba(0, 0, 0, 0.4);
+            /* box-shadow: inset 0 4px 10px rgba(0, 0, 0, 0.4); */
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease;
+        }
+
+        /*         .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        } */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-family: 'Nimbus Mono';
+            word-spacing: -0.3em;
+            letter-spacing: -0.05em;
+            cursor: default;
+            user-select: none;
+        }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.3rem;
+            }
+        }
+
+        .logo-img {
+            width: 40px;
+            margin-right: 1rem;
+            filter: drop-shadow(0 4px 6px #000);
+        }
+
+        .hamburger-menu {
+            display: none;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1rem;
+            z-index: 999;
+        }
+
+        .nav-links-inner {
+            display: inherit;
+            flex-direction: inherit;
+        }
+
+        .nav-links a {
+            padding: 0.5rem;
+            font-family: 'Rubik';
+            font-weight: normal;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            color: var(--teal);
+        }
+
+        .nav-links a:hover {
+            background-color: var(--col2);
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger-menu {
+                display: block;
+            }
+
+            .menu-overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links {
+                /* visibility: hidden; */
+                display: flex;
+                flex-direction: column;
+                background: #1a1a1a;
+                width: 100%;
+                position: absolute;
+                top: 72px;
+                left: 0;
+                /* padding: 1rem 1rem 1.5rem 1rem; */
+                /* padding: 0 1rem 0 1rem; */
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.3s ease;
+            }
+
+            .nav-links-inner {
+                /* padding: 0 1rem 0 1rem; */
+                padding: 0.5rem 1rem 1.5rem 1rem;
+                /* transition: padding 0.3s ease; */
+            }
+
+            /* .nav-links.open {
+                visibility: visible;
+                max-height: 200px;
+                padding: 1rem 1rem 1.5rem 1rem;
+            } */
+
+            /* .nav-links.open .nav-links-inner {
+                padding: 1rem 1rem 1.5rem 1rem;
+            } */
+        }
+
+        section {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: auto auto 4rem;
+        }
+
+        section h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* WELCOME SECTION */
+        .welcome-section {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 90vh;
+        }
+
+        .welcome-carousel {
+            position: relative;
+            height: 5rem;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .welcome-carousel p {
+            position: absolute;
+            max-width: 90%;
+            text-align: center;
+            opacity: 0;
+            transform: translateX(100%);
+            transition: transform 0.6s ease, opacity 0.6s ease;
+            font-size: 1.6rem;
+            line-height: 1.6;
+            padding: 0.5rem 1rem;
+            font-family: 'Nimbus Mono';
+        }
+
+        .welcome-carousel p.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .welcome-carousel p.exit {
+            transform: translateX(-100%);
+            opacity: 0;
+        }
+
+        @media (max-width: 768px) {
+            .welcome-carousel {
+                height: 10rem;
+            }
+
+            .welcome-carousel p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* SERVICES / CARDS */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            align-items: stretch;
+        }
+
+        @media only screen and (max-width: 1200px) and (min-width: 600px) {
+            .services {
+                grid-template-columns: repeat(2, 1fr);
+                /* 2 columns per row for tablet */
+            }
+        }
+
+        .card {
+            background: rgba(20, 20, 20, 0.4);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+            backdrop-filter: blur(6px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.8);
+            border: 1px solid rgba(127, 127, 127, 0.15);
+            border-width: 0 1px 1px 0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100%;
+        }
+
+        .card-content {
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+            /* margin-top: auto; */
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background: linear-gradient(150deg, rgba(63, 63, 63, 0.1), rgba(63, 63, 63, 0.05) 30%, rgba(63, 63, 63, 0) 60%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .card:hover {
+            background: rgba(40, 40, 40, 0.4);
+            border-color: rgba(60, 60, 60, 0.4);
+            transform: translateY(-5px);
+            filter: saturate(1.6);
+        }
+
+        @media (max-width: 768px) {
+            .card.hovered {
+                background: rgba(40, 40, 40, 0.4);
+                border-color: rgba(60, 60, 60, 0.4);
+                transform: translateY(-5px);
+                filter: saturate(1.6);
+            }
+        }
+
+        .card .lang {
+            margin-top: 0.8rem;
+            font-size: 0.85rem;
+            color: var(--text-color);
+            background-color: var(--col1);
+            display: inline-block;
+            padding: 0.3rem 0.6rem;
+            border-radius: 6px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            font-family: 'Nimbus Mono';
+            width: fit-content;
+            text-align: center;
+            align-self: center;
+        }
+
+        .card p {
+            line-height: 1.6;
+            text-align: justify;
+            text-justify: newspaper;
+            hyphens: auto;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* CTA */
+        .cta-section {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+        }
+
+        .get-in-touch {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--purple);
+            color: white;
+            border-radius: 8px;
+            margin-top: 4rem;
+            transition: background-color 0.3s;
+        }
+
+        .get-in-touch:hover {
+            background-color: var(--hover);
+            color: #fff;
+        }
+
+
+        .cta-bubble {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: var(--purple);
+            color: white;
+            font-size: 1.6rem;
+            padding: 1rem;
+            border-radius: 50%;
+            z-index: 999;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+            transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-bubble:hover {
+            color: #fff;
+            background-color: var(--accent-color);
+            transform: scale(1.2);
+            /* Grow the bubble by 20% */
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+            /* Optional: make shadow stronger on hover */
+        }
+
+        /* CONTACT FORM */
+        .contact-form {
+            margin-top: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 0.8rem;
+            background-color: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 6px;
+            font-size: 1rem;
+            color: var(--text-color);
+            resize: vertical;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            background-color: #222;
+            box-shadow: 0 0 0 2px rgba(80, 175, 153, 0.2);
+        }
+
+        .contact-form button {
+            padding: 0.7rem 1.5rem;
+            background: var(--teal);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: var(--hover);
+        }
+
+        /* CONTACT INFO */
+        .contact-info {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .contact-info i {
+            margin-right: 0.5rem;
+            color: var(--accent-color);
+        }
+
+        .contact-info a {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .contact-info a:hover {
+            color: var(--hover);
+        }
+
+        /* SOCIALS */
+        .social-media {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: var(--accent-color);
+        }
+
+        .social-media a:hover {
+            color: var(--hover);
+        }
+
+        .social-media i {
+            font-size: 2rem;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-media a:hover i {
+            transform: scale(1.1);
+        }
+
+        .map {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            background: #101010;
+            padding: 1rem;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="lava-glow glow1"></div>
+    <div class="lava-glow glow2"></div>
+    <div class="lava-glow glow3"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+        <div class="logo">
+            <img src="images/icon3.svg" alt="The Code In Toad Logo" class="logo-img">
+            <!-- <span>the <b>code</b> in <b>toad</b></span> -->
+            <span>the code in toad</span>
+        </div>
+        <div class="hamburger-menu" id="hamburger" aria-label="Toggle Menu">&#9776;</div>
+        <div class="nav-links" id="navLinks">
+            <div class="nav-links-inner">
+                <a href="#home">Inicio</a>
+                <a href="#courses">Cursos</a>
+                <a href="#contact">Contactos</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+    <!-- Welcome -->
+    <section id="home" class="welcome-section">
+        <h2>Salta para o mundo da programação!</h2>
+        <div class="welcome-carousel" aria-live="polite">
+            <p>Descobre o potencial da tua criatividade.</p>
+            <p>Aprende a programar de forma experimental e interativa!</p>
+            <p>Com turmas pequenas e ensino personalizado.</p>
+            <p>Evoluí as tuas capacidades digitais enquanto crias jogos, animações e aplicações.</p>
+            <p>Disponíveis quatro cursos adaptados a cada faixa etária.</p>
+            <p>Estimula o raciocínio lógico e a resolução de problemas.</p>
+        </div>
+
+    </section>
+
+    <!-- Courses -->
+    <section id="courses">
+        <h2>Cursos</h2>
+        <div class="services">
+            <div class="card">
+                <div class="card-icon">😺</div>
+                <h3>First Scratch<br>(6 - 8)</h3>
+                <!-- <p>Introdução à programação com o ScratchJr — um ambiente visual pensado para os mais novos. Aqui, os alunos criam jogos simples e histórias interativas com personagens divertidas enquanto desenvolvem raciocínio lógico, criatividade e noções básicas de causa-efeito.</p> -->
+                <div class="card-content">
+                    <p>Explora a programação com o ScratchJr! Cria histórias e jogos enquanto desenvolves lógica e
+                        criatividade.</p>
+                    <p class="lang">ScratchJr</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🧩</div>
+                <h3>Major Itch<br>(9 – 11)</h3>
+                <!-- <p>Os alunos mergulham no Scratch, onde aprendem a construir jogos, animações e mini-projetos interativos. Trabalham em equipa, exploram conceitos como loops, condições e eventos, e começam a pensar como programadores, tudo de forma divertida e visual.</p> -->
+                <div class="card-content">
+                    <p>Cria jogos e animações no Scratch! Aprende conceitos de programação de forma visual, divertida e
+                        prática.</p>
+                    <p class="lang">Scratch</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🐍</div>
+                <h3>Pythoneer<br>(12 - 14)</h3>
+                <!-- <p>Transição do visual para o código! Neste curso, os alunos aprendem os fundamentos do Python com projetos práticos como mini-jogos, histórias interativas e desafios de lógica. A ênfase é na escrita de código claro e na resolução de problemas passo a passo.</p> -->
+                <div class="card-content">
+                    <p>Descobre o Python com projetos simples como jogos e desafios. Aprende a programar com código real
+                        desde o início.</p>
+                    <p class="lang">Python</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>Pythonic<br>(15 – 17)</h3>
+                <!-- <p>Curso introdutório ao Python com foco em aplicações reais: automações, jogos, lógica algorítmica e introdução à inteligência artificial. Ideal para quem quer dar os primeiros passos em programação séria, com apoio personalizado e desafios semanais.</p> -->
+                <div class="card-content">
+                    <p>Programa em Python e desenvolve jogos, automações e inteligência artificial. Começa a programar a
+                        sério!</p>
+                    <p class="lang">Python</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Queres experimentar?</h2>
+        <p>Inscreve-te numa aula de teste. Entra em contacto connosco para saber mais.</p>
+        <a href="#contact" class="get-in-touch">Fala connosco</a>
+    </section>
+
+    <!-- CTA Bubble -->
+    <a href="#form" class="cta-bubble" title="Fala connosco"> <span
+            class="material-symbols-outlined">edit_calendar</span></a>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Onde estamos</h2>
+        <div class="map-container">
+            <iframe class="map" title="Mapa" loading="lazy"
+                src="https://maps.google.com/maps?q=Rua%20Doutor%20Pereira%20Júnior%2053&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
+        </div>
+
+        <div class="contact-info">
+            <p><i class="fas fa-map-marker-alt"></i> <a
+                    href="https://www.google.com/maps?q=Rua+doutor+pereira+junior+53,+vila+do+conde" target="_blank">
+                    Rua Doutor Pereira Júnior 53, Piso 1, Vila do Conde
+                </a></p>
+            <p><i class="fas fa-envelope"></i> <a href="mailto:info@thecodeintoad.com">info@thecodeintoad.com</a></p>
+            <p><i class="fas fa-phone-alt"></i> <a href="tel:+351910638940">(+351) 910 638 940</a></p>
+        </div>
+
+        <div class="social-media">
+            <a href="https://www.facebook.com/people/the-code-in-toad/61574866281557/#" target="_blank"
+                aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/the_code_in_toad_/?hl=en" target="_blank" aria-label="Instagram"><i
+                    class="fab fa-instagram"></i></a>
+            <a href="https://github.com/thecodeintoad" target="_blank" aria-label="GitHub"><i
+                    class="fab fa-github"></i></a>
+            <a href="https://www.google.com/search?q=The+Code+In+Toad&oq=The+Code+In+Toad" target="_blank"
+                aria-label="Google Business"><i class="fab fa-google"></i></a>
+        </div>
+        <!-- <div class="contact-form" id="form">
+            <input type="text" placeholder="Nome do Encarregado de Educação" required>
+            <input type="email" placeholder="Email de contacto" required>
+            <textarea placeholder="Mensagem ou dúvidas..." rows="4" required></textarea>
+            <button type="submit">Enviar Mensagem</button>
+        </div> -->
+        <form action="https://formsubmit.co/thecodeintoad@gmail.com" method="POST" class="contact-form" id="form">
+            <!-- Visible fields -->
+            <input type="text" name="name" placeholder="Nome do Encarregado de Educação" required>
+            <input type="email" name="email" placeholder="Email de contacto" required>
+            <textarea name="message" placeholder="Mensagem ou dúvidas..." rows="4" required></textarea>
+
+            <!-- Optional hidden fields -->
+            <input type="hidden" name="_subject" value="Nova mensagem do site The Code In Toad!">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="_honey" style="display:none">
+
+            <button type="submit">Enviar Mensagem</button>
+        </form>
+    </section>
+
+
+
+    <footer>
+        &copy; 2025 The Code In Toad. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        const navLinksInner = navLinks.querySelector('.nav-links-inner');
+        const navOps = document.querySelectorAll('.nav-links a');
+        const overlay = document.getElementById('menuOverlay');
+
+        function toggleMenu() {
+            if (window.innerWidth > 768) return;
+
+            if (navLinks.classList.contains('open')) {
+                navLinks.style.maxHeight = null;
+                navLinks.classList.remove('open');
+                overlay.classList.remove('active');
+            } else {
+                navLinks.style.maxHeight = '0px';
+                void navLinksInner.offsetHeight;
+                navLinks.style.maxHeight = navLinksInner.getBoundingClientRect().height + 'px';
+                navLinks.classList.add('open');
+                overlay.classList.add('active');
+
+            }
+        }
+
+        hamburger.addEventListener('click', toggleMenu);
+        overlay.addEventListener('click', toggleMenu);
+
+        navOps.forEach(link => {
+            link.addEventListener('click', toggleMenu);
+        });
+
+        // Hamburger Menu Toggle
+        /*         hamburger.addEventListener('click', () => {
+                    navLinks.classList.toggle('open');
+                    overlay.classList.toggle('active');
+                });
+        
+                navOps.forEach(link => {
+                    link.addEventListener('click', () => {
+                        // Close the menu when a link is clicked
+                        navLinks.classList.remove('open');
+                        overlay.classList.remove('active');
+                    });
+                }); */
+
+        // Carousel functionality
+        const carousel = document.querySelectorAll('.welcome-carousel p');
+        let current = 0;
+
+        function showNextMessage() {
+            const total = carousel.length;
+            carousel[current].classList.remove('active');
+            carousel[current].classList.add('exit');
+
+            current = (current + 1) % total;
+
+            // Reset exit state after animation
+            setTimeout(() => {
+                carousel.forEach(p => p.classList.remove('exit'));
+                carousel[current].classList.add('active');
+            }, 600);
+        }
+
+        // Initialize first message in the carousel
+        carousel[0].classList.add('active');
+        setInterval(showNextMessage, 6000); // Change every 6 seconds
+
+        // Function to handle when a card comes into the viewport
+        function handleIntersection(entries, observer) {
+            entries.forEach(entry => {
+                const card = entry.target;
+
+                if (entry.isIntersecting && isCardFullyVisible(card)) {
+                    // Remove hovered class from all cards
+                    document.querySelectorAll('.card').forEach(c => c.classList.remove('hovered'));
+
+                    // Add the hovered class to the currently intersecting card
+                    card.classList.add('hovered');
+                } else {
+                    // Remove hovered class when the card is no longer in the viewport or is not fully visible
+                    card.classList.remove('hovered');
+                }
+            });
+        }
+
+        // Helper function to check if the card is fully visible
+        function isCardFullyVisible(card) {
+            const navbarHeight = document.querySelector('.navbar').offsetHeight;
+            const rect = card.getBoundingClientRect();
+            return rect.top >= navbarHeight && rect.bottom <= window.innerHeight;
+        }
+
+        let observer;
+
+        function initializeObserver() {
+            // Check if observer should be initialized based on screen size
+            if (window.innerWidth <= 768 && !observer) {
+                observer = new IntersectionObserver(handleIntersection, {
+                    rootMargin: '-20% 0px', // Track the card earlier on both scroll down and up
+                    threshold: 1.0, // Ensure 50% of the card is visible before triggering hover
+                });
+
+                // Select all course cards and observe them
+                document.querySelectorAll('.card').forEach(card => {
+                    observer.observe(card);
+                });
+            } else if (window.innerWidth > 768 && observer) {
+                // Disconnect observer when switching to desktop
+                observer.disconnect();
+                observer = null;
+                document.querySelectorAll('.card').forEach(card => card.classList.remove('hovered')); // Remove hovered class
+            }
+
+            // Check visibility for all cards and apply the hover state
+            document.querySelectorAll('.card').forEach(card => {
+                if (isCardFullyVisible(card)) {
+                    card.classList.add('hovered');
+                } else {
+                    card.classList.remove('hovered');
+                }
+            });
+        }
+
+        // Initialize observer when the page loads and on resize
+        document.addEventListener('DOMContentLoaded', initializeObserver, { passive: true });
+        window.addEventListener('resize', debounce(initializeObserver, 300), { passive: true });
+
+        // Debounce function to prevent excessive resize event calls
+        function debounce(func, wait) {
+            let timeout;
+            return function () {
+                clearTimeout(timeout);
+                timeout = setTimeout(func, wait);
+            };
+        }
+
+    </script>
+</body>
+
+</html>
