@@ -65,26 +65,26 @@
 
         body {
             font-family: 'Rubik', sans-serif;
-            background: url('images/turing-pattern.png'),
+            /*background: url('images/turing-pattern.png'),
                 linear-gradient(60deg, rgba(0, 176, 129, 0.5), rgba(50, 0, 178, 0.5));
             background-blend-mode: overlay;
             background-attachment: fixed;
-            background-size: auto 180vh;
+            background-size: auto 180vh;*/
             background-color: var(--bg-light);
             color: var(--text-color);
         }
         
-        /*.blur-bg {
+        .blur-bg {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100vh;
-            background: url('images/turing-pattern.svg'), linear-gradient(60deg, rgba(0, 176, 129, 0.5), rgba(50, 0, 178, 0.5));
+            background: url('images/turing-pattern.png') no-repeat center center, linear-gradient(60deg, rgba(0, 176, 129, 0.5), rgba(50, 0, 178, 0.5));
             background-size: cover;
-            background-attachment: fixed;
+            /*background-attachment: fixed;*/
             z-index: -2;
-        }*/
+        }
 
         .lava-glow {
             position: fixed;
@@ -674,7 +674,7 @@
 </head>
 
 <body>
-    <!--<div class="blur-bg"></div>-->
+    <div class="blur-bg"></div>
     <div class="lava-glow glow1"></div>
     <div class="lava-glow glow2"></div>
     <div class="lava-glow glow3"></div>
