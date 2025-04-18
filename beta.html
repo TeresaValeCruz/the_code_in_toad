@@ -84,15 +84,16 @@
             background-size: auto 180vh;
             /*background-attachment: fixed;*/
             z-index: -2;
+            background-blend-mode: overlay;
         }
 
-        .blur-bg::after {
+        /*.blur-bg::after {
             content: '';
             position: absolute;
             inset: 0;
-            background-color: rgba(18, 18, 18, 0.6); /* Adjust as needed */
+            background-color: rgba(18, 18, 18, 0.6); 
             z-index: 1;
-        }
+        }*/
 
         .lava-glow {
             position: fixed;
