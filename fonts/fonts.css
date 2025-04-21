@@ -1,0 +1,44 @@
+/* Nimbus Mono Regular */
+@font-face {
+  font-family: 'Nimbus Mono';
+  src: url('NimbusMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Nimbus Mono Bold */
+@font-face {
+  font-family: 'Nimbus Mono';
+  src: url('NimbusMono-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Rubik Regular */
+@font-face {
+  font-family: 'Rubik';
+  src: url('rubik-v28-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Rubik Bold */
+@font-face {
+  font-family: 'Rubik';
+  src: url('rubik-v28-latin-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Rubik Mono One */
+@font-face {
+  font-family: 'Rubik Mono One';
+  src: url('rubik-mono-one-v18-latin-regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
