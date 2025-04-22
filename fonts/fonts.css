@@ -92,7 +92,7 @@
 /* material symbols */
 @font-face {
   font-family: 'material-symbols';
-  src:  url('fonts/material-symbols.woff?p62281') format('woff');
+  src:  url('material-symbols.woff') format('woff');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
