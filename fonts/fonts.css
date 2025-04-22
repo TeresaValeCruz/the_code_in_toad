@@ -42,3 +42,49 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* font awesome */
+@font-face {
+  font-family: 'fa-symbols';
+  src:  url('fa-symbols.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+[class^="fa"], [class*=" fa"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'fa-symbols' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-envelope:before {
+  content: "\e900";
+}
+.fa-facebook:before {
+  content: "\e901";
+}
+.fa-github:before {
+  content: "\e902";
+}
+.fa-google:before {
+  content: "\e903";
+}
+.fa-instagram:before {
+  content: "\e904";
+}
+.fa-map-marker-alt:before {
+  content: "\e905";
+}
+.fa-phone-alt:before {
+  content: "\e906";
+}
